@@ -21,7 +21,7 @@ public class MacRouteConstraint : IRouteConstraint
     {
         if (string.IsNullOrWhiteSpace(mac)) return false;
 
-        mac = mac.ToLowerInvariant().Replace(":", string.Empty).Replace("-", string.Empty);
+        mac = mac.ToLowerInvariant().Replace(":", string.Empty);
         return Regex.IsMatch(mac, "^[a-f0-9]{12}$");
     }
 }

@@ -5,16 +5,9 @@ var configuration = builder.Configuration.Get<Configuration>();
 
 builder.Services.AddSingleton(configuration);
 builder.Services.AddControllers();
-builder.Services.Configure<RouteOptions>(options =>
-{
-    options.ConstraintMap.Add("mac", typeof(MacRouteConstraint));
-});
+builder.Services.Configure<RouteOptions>(options => options.ConstraintMap.Add("mac", typeof(MacRouteConstraint)));
 
 var app = builder.Build();
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
