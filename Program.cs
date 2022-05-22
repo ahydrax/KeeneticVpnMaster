@@ -1,5 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
+builder.Configuration.AddJsonFile(args[1]);
 
 var configuration = builder.Configuration.Get<Configuration>();
 
